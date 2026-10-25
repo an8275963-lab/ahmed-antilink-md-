@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ahmed-antilink-md-bot
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    disk:
+      name: whatsapp-auth
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: AUTH_DIR
+        value: /var/data/auth
